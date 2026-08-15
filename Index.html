@@ -3,103 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todayxtyle — Modern Essentials</title>
 
-<title>Todayxtyle — Modern Clothing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'DM Sans',sans-serif;
-background:#f6f3ed;
-color:#111;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-img{
-width:100%;
-display:block;
-}
-
-/* HEADER */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f3efe8;color:#171513;font-family:"DM Sans",sans-serif}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block}
 
 header{
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:1000;
-padding:18px 5%;
-transition:.3s;
+position:fixed;top:0;left:0;width:100%;z-index:10;
+padding:22px 5%;transition:.3s
 }
-
-header.scrolled{
-background:rgba(246,243,237,.92);
-backdrop-filter:blur(15px);
-box-shadow:0 1px 20px rgba(0,0,0,.06);
+header.active{
+background:rgba(243,239,232,.92);
+backdrop-filter:blur(16px);
+border-bottom:1px solid #ddd5c9
 }
-
 .nav{
-max-width:1400px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
+max-width:1450px;margin:auto;display:flex;
+align-items:center;justify-content:space-between
 }
-
 .logo{
-font-size:22px;
-font-weight:700;
-letter-spacing:3px;
+font-size:20px;font-weight:600;letter-spacing:3px
 }
-
-.menu{
-display:flex;
-gap:35px;
-font-size:13px;
-font-weight:600;
-}
-
-.menu a{
-position:relative;
-}
-
-.menu a:after{
-content:"";
-position:absolute;
-bottom:-6px;
-left:0;
-width:0;
-height:1px;
-background:#111;
-transition:.3s;
-}
-
-.menu a:hover:after{
-width:100%;
-}
-
-.whatsapp{
-background:#111;
-color:white;
-padding:13px 21px;
-border-radius:30px;
-font-size:12px;
-font-weight:600;
+.links{display:flex;gap:34px;font-size:12px}
+.links a{opacity:.75}
+.links a:hover{opacity:1}
+.wa{
+border:1px solid #171513;padding:11px 18px;
+font-size:11px;letter-spacing:1px
 }
 
 /* HERO */
@@ -107,590 +45,228 @@ font-weight:600;
 .hero{
 min-height:100vh;
 display:grid;
-grid-template-columns:45% 55%;
-padding-top:75px;
+grid-template-columns:43% 57%;
+padding-top:75px
 }
-
-.hero-content{
+.heroText{
+padding:9% 7%;
 display:flex;
-flex-direction:column;
 justify-content:center;
-padding:7%;
+flex-direction:column
+}
+.kicker{
+font-size:10px;letter-spacing:4px;margin-bottom:25px
+}
+h1{
+font-family:"Playfair Display",serif;
+font-size:clamp(62px,8vw,125px);
+font-weight:500;line-height:.86;
+letter-spacing:-5px
+}
+h1 em{font-weight:500}
+.intro{
+max-width:390px;color:#706b63;
+font-size:14px;line-height:1.8;
+margin:30px 0
+}
+.heroBtn{
+display:inline-block;background:#171513;color:white;
+padding:16px 25px;font-size:11px;
+letter-spacing:1.5px;width:max-content
+}
+.heroImg{
+background:url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1500&q=90") center/cover
 }
 
-.label{
-font-size:11px;
-letter-spacing:4px;
-font-weight:700;
-margin-bottom:25px;
+/* TICKER */
+
+.ticker{
+background:#171513;color:#f3efe8;
+padding:14px;overflow:hidden;
+font-size:10px;letter-spacing:3px;
+white-space:nowrap
 }
 
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:clamp(58px,8vw,120px);
-line-height:.88;
-font-weight:500;
-letter-spacing:-5px;
-}
-
-.hero h1 span{
-font-style:italic;
-}
-
-.hero-text{
-max-width:420px;
-color:#68645d;
-font-size:15px;
-line-height:1.7;
-margin:30px 0;
-}
-
-.hero-button{
-display:inline-flex;
-align-items:center;
-gap:15px;
-background:#111;
-color:white;
-padding:17px 26px;
-border-radius:40px;
-width:max-content;
-font-size:13px;
-font-weight:600;
-transition:.3s;
-}
-
-.hero-button:hover{
-transform:translateY(-3px);
-}
-
-.hero-image{
-min-height:700px;
-background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=90');
-background-size:cover;
-background-position:center;
-}
-
-/* MARQUEE */
-
-.marquee{
-background:#111;
-color:white;
-padding:18px 0;
-overflow:hidden;
-white-space:nowrap;
-}
-
-.marquee-inner{
-display:inline-block;
-animation:move 20s linear infinite;
-font-size:12px;
-letter-spacing:4px;
-font-weight:600;
-}
-
-@keyframes move{
-from{transform:translateX(0)}
-to{transform:translateX(-50%)}
-}
-
-/* GENERAL */
+/* SECTIONS */
 
 .section{
-max-width:1400px;
-margin:auto;
-padding:110px 5%;
+max-width:1450px;margin:auto;padding:115px 5%
 }
-
-.section-top{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-bottom:45px;
+.head{
+display:flex;justify-content:space-between;
+align-items:end;margin-bottom:45px
 }
-
 .eyebrow{
-font-size:10px;
-letter-spacing:3px;
-font-weight:700;
-margin-bottom:12px;
+font-size:9px;letter-spacing:3px;
+margin-bottom:12px
+}
+.title{
+font-family:"Playfair Display",serif;
+font-size:56px;font-weight:500
+}
+.note{
+max-width:280px;color:#777;
+font-size:12px;line-height:1.7
 }
 
-.section-title{
-font-family:'Playfair Display',serif;
-font-size:55px;
-font-weight:500;
-letter-spacing:-2px;
-}
+/* COLLECTION */
 
-.section-description{
-max-width:320px;
-color:#777;
-font-size:13px;
-line-height:1.7;
-}
-
-/* CATEGORIES */
-
-.categories{
+.collection{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
+grid-template-columns:1.35fr 1fr 1fr;
+gap:14px
 }
-
-.category{
-height:480px;
-position:relative;
-overflow:hidden;
-background:#ddd;
+.collection article{position:relative;overflow:hidden}
+.collection article:first-child{grid-row:span 2}
+.collection img{
+height:100%;object-fit:cover;
+transition:transform .7s
 }
-
-.category img{
-height:100%;
-object-fit:cover;
-transition:.7s;
+.collection article:hover img{transform:scale(1.04)}
+.collection article:first-child{height:690px}
+.collection article:not(:first-child){height:338px}
+.overlay{
+position:absolute;left:0;right:0;bottom:0;
+padding:30px;color:white;
+background:linear-gradient(transparent,rgba(0,0,0,.7))
 }
-
-.category:hover img{
-transform:scale(1.06);
-}
-
-.category-content{
-position:absolute;
-bottom:0;
-left:0;
-right:0;
-padding:28px;
-color:white;
-background:linear-gradient(transparent,rgba(0,0,0,.65));
-}
-
-.category-number{
-font-size:10px;
-opacity:.7;
-margin-bottom:8px;
-}
-
-.category h3{
-font-family:'Playfair Display',serif;
-font-size:27px;
-font-weight:500;
+.overlay span{font-size:9px;letter-spacing:2px}
+.overlay h3{
+font-family:"Playfair Display",serif;
+font-size:28px;font-weight:500;margin-top:7px
 }
 
 /* PRODUCTS */
 
 .products{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:22px;
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px
 }
-
-.product{
-background:white;
-position:relative;
+.card{background:#e9e3d9}
+.pic{height:540px;overflow:hidden;position:relative}
+.pic img{height:100%;object-fit:cover;transition:.6s}
+.card:hover .pic img{transform:scale(1.03)}
+.tag{
+position:absolute;top:15px;left:15px;
+background:#f3efe8;padding:7px 10px;
+font-size:9px;letter-spacing:1px
 }
-
-.product-image{
-height:500px;
-overflow:hidden;
-position:relative;
+.info{padding:20px}
+.info h3{font-family:"Playfair Display",serif;font-size:22px;font-weight:500}
+.info p{font-size:11px;color:#777;margin:8px 0 18px}
+.infoBottom{
+display:flex;justify-content:space-between;align-items:center
 }
-
-.product-image img{
-height:100%;
-object-fit:cover;
-transition:.6s;
-}
-
-.product:hover .product-image img{
-transform:scale(1.04);
-}
-
-.badge{
-position:absolute;
-top:15px;
-left:15px;
-background:white;
-padding:8px 12px;
-font-size:9px;
-letter-spacing:1px;
-font-weight:700;
-}
-
-.product-info{
-padding:22px;
-}
-
-.product-info h3{
-font-size:16px;
-margin-bottom:8px;
-}
-
-.product-info p{
-font-size:12px;
-color:#777;
-margin-bottom:18px;
-}
-
-.product-bottom{
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.price{
-font-weight:700;
-font-size:14px;
-}
-
+.price{font-size:12px;font-weight:600}
 .order{
-background:#111;
-color:white;
-padding:11px 15px;
-border-radius:25px;
-font-size:11px;
-font-weight:600;
+background:#171513;color:white;
+padding:10px 15px;font-size:9px;letter-spacing:1px
 }
 
-/* FEATURE BANNER */
+/* EDITORIAL */
 
-.feature-banner{
-max-width:1400px;
-margin:0 auto;
-padding:0 5%;
+.editorial{
+background:#201b17;color:#f3efe8;
+display:grid;grid-template-columns:1fr 1fr;
+min-height:650px
+}
+.editorialImg{
+background:url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90") center/cover
+}
+.editorialText{
+padding:9%;display:flex;
+flex-direction:column;justify-content:center
+}
+.editorialText .title{font-size:70px;line-height:.95}
+.editorialText p{
+color:#aaa;max-width:400px;
+font-size:13px;line-height:1.8;
+margin:28px 0
+}
+.lightBtn{
+background:#f3efe8;color:#171513;
+padding:15px 23px;font-size:10px;
+width:max-content;letter-spacing:1px
 }
 
-.banner{
-height:650px;
-position:relative;
-background-image:url('https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1600&q=90');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
+/* BRAND */
+
+.brand{
+text-align:center;padding:140px 5%
 }
-
-.banner:before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.28);
-}
-
-.banner-content{
-position:relative;
-z-index:1;
-}
-
-.banner-small{
-font-size:11px;
-letter-spacing:4px;
-margin-bottom:20px;
-}
-
-.banner h2{
-font-family:'Playfair Display',serif;
-font-size:clamp(50px,8vw,100px);
-font-weight:500;
-line-height:.9;
-margin-bottom:30px;
-}
-
-.banner-button{
-display:inline-block;
-background:white;
-color:#111;
-padding:15px 25px;
-border-radius:30px;
-font-size:12px;
-font-weight:700;
-}
-
-/* WHY */
-
-.dark{
-background:#111;
-color:white;
-}
-
-.why-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:center;
-}
-
-.why-title{
-font-family:'Playfair Display',serif;
-font-size:65px;
-font-weight:500;
-line-height:.95;
-}
-
-.why-text{
-color:#aaa;
-font-size:14px;
-line-height:1.8;
-margin-top:25px;
-max-width:430px;
-}
-
-.features{
-display:grid;
-gap:30px;
-}
-
-.feature{
-border-top:1px solid #333;
-padding-top:22px;
-}
-
-.feature span{
-font-size:10px;
-color:#777;
-}
-
-.feature h3{
-font-size:19px;
-margin:8px 0;
-}
-
-.feature p{
-font-size:12px;
-color:#888;
-line-height:1.6;
-}
-
-/* REVIEWS */
-
-.reviews{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.review{
-background:white;
-padding:35px;
-}
-
-.stars{
-font-size:12px;
-letter-spacing:3px;
-margin-bottom:25px;
-}
-
-.review p{
-font-family:'Playfair Display',serif;
-font-size:20px;
-line-height:1.4;
-margin-bottom:25px;
-}
-
-.review-name{
-font-size:11px;
-font-weight:700;
-letter-spacing:1px;
-}
-
-/* CTA */
-
-.cta{
-padding:140px 5%;
-text-align:center;
-}
-
-.cta h2{
-font-family:'Playfair Display',serif;
-font-size:clamp(55px,9vw,115px);
-font-weight:500;
-line-height:.85;
-letter-spacing:-4px;
-}
-
-.cta p{
-color:#777;
-font-size:14px;
-margin:30px 0;
+.brand .title{font-size:clamp(50px,8vw,105px);line-height:.9}
+.brand p{
+max-width:470px;margin:30px auto;
+font-size:13px;color:#777;line-height:1.8
 }
 
 /* FOOTER */
 
 footer{
-background:#111;
-color:white;
-padding:70px 5% 30px;
+background:#171513;color:#f3efe8;padding:65px 5% 25px
 }
-
-.footer-grid{
-max-width:1400px;
-margin:auto;
-display:grid;
-grid-template-columns:2fr 1fr 1fr 1fr;
-gap:50px;
-padding-bottom:70px;
+.footer{
+max-width:1450px;margin:auto;
+display:flex;justify-content:space-between;
+gap:40px;padding-bottom:65px
 }
-
-.footer-logo{
-font-size:22px;
-letter-spacing:4px;
-font-weight:700;
-}
-
-.footer-about{
-color:#888;
-font-size:12px;
-line-height:1.7;
-max-width:300px;
-margin-top:18px;
-}
-
-.footer h4{
-font-size:11px;
-letter-spacing:2px;
-margin-bottom:20px;
-}
-
-.footer-links{
-display:grid;
-gap:12px;
-font-size:12px;
-color:#aaa;
-}
-
-.footer-bottom{
-max-width:1400px;
-margin:auto;
-border-top:1px solid #292929;
-padding-top:25px;
-display:flex;
-justify-content:space-between;
-font-size:10px;
-color:#666;
+.footerLogo{font-size:20px;letter-spacing:3px}
+.footer p{color:#888;font-size:11px;margin-top:12px}
+.footerRight{text-align:right}
+.footerRight a{font-size:11px;display:block;margin-top:10px}
+.bottom{
+max-width:1450px;margin:auto;
+border-top:1px solid #36312c;
+padding-top:20px;color:#666;
+font-size:9px;display:flex;
+justify-content:space-between
 }
 
 /* MOBILE */
 
 @media(max-width:800px){
 
-header{
-padding:16px 5%;
-}
-
-.menu{
-display:none;
-}
+header{padding:18px 5%}
+.links{display:none}
 
 .hero{
 grid-template-columns:1fr;
+min-height:auto
 }
+.heroText{padding:130px 7% 60px}
+.heroImg{height:600px}
 
-.hero-content{
-padding:100px 7% 55px;
+h1{font-size:68px;letter-spacing:-4px}
+
+.section{padding:80px 5%}
+.head{display:block}
+.title{font-size:45px}
+.note{margin-top:15px}
+
+.collection{
+grid-template-columns:1fr 1fr
 }
-
-.hero h1{
-font-size:70px;
-letter-spacing:-4px;
-}
-
-.hero-image{
-min-height:520px;
-}
-
-.section{
-padding:80px 5%;
-}
-
-.section-top{
-display:block;
-}
-
-.section-title{
-font-size:45px;
-margin-bottom:15px;
-}
-
-.categories{
-grid-template-columns:1fr 1fr;
-}
-
-.category{
-height:330px;
-}
-
-.products{
-grid-template-columns:1fr;
-}
-
-.product-image{
-height:500px;
-}
-
-.banner{
-height:500px;
-}
-
-.why-grid{
-grid-template-columns:1fr;
-gap:60px;
-}
-
-.why-title{
-font-size:55px;
-}
-
-.reviews{
-grid-template-columns:1fr;
-}
-
-.footer-grid{
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
-.footer-grid>div:first-child{
+.collection article:first-child{
 grid-column:1/-1;
+height:520px
 }
-
-.footer-bottom{
-display:block;
-line-height:2;
+.collection article:not(:first-child){
+height:300px
 }
+.overlay h3{font-size:21px}
 
-}
+.products{grid-template-columns:1fr}
+.pic{height:500px}
 
-@media(max-width:480px){
+.editorial{grid-template-columns:1fr}
+.editorialImg{height:500px}
+.editorialText{padding:75px 8%}
+.editorialText .title{font-size:55px}
 
-.hero h1{
-font-size:58px;
-}
+.brand{padding:100px 6%}
 
-.categories{
-gap:8px;
-}
-
-.category{
-height:270px;
-}
-
-.category-content{
-padding:18px;
-}
-
-.category h3{
-font-size:21px;
-}
-
-.product-image{
-height:460px;
-}
-
-.cta{
-padding:100px 5%;
-}
+.footer{display:block}
+.footerRight{text-align:left;margin-top:35px}
+.bottom{display:block;line-height:2}
 
 }
 </style>
@@ -699,543 +275,263 @@ padding:100px 5%;
 <body>
 
 <header id="header">
-
 <div class="nav">
 
-<a href="#" class="logo">TODAYXTYLE</a>
+<div class="logo">TODAYXTYLE</div>
 
-<nav class="menu">
-<a href="#collection">Collection</a>
-<a href="#new">New Arrivals</a>
-<a href="#story">Our Story</a>
+<nav class="links">
+<a href="#collection">COLLECTION</a>
+<a href="#new">NEW IN</a>
+<a href="#story">STORY</a>
 </nav>
 
-<a class="whatsapp"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20explore%20your%20collection.">
-WhatsApp
+<a class="wa" href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20explore%20your%20collection.">
+WHATSAPP
 </a>
 
 </div>
-
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero">
 
-<div class="hero-content">
+<div class="heroText">
+<div class="kicker">TODAYXTYLE / 2026</div>
 
-<div class="label">NEW SEASON · 2026</div>
+<h1>Wear<br><em>what</em><br>feels you.</h1>
 
-<h1>STYLE<br><span>WITHOUT</span><br>LIMITS.</h1>
-
-<p class="hero-text">
-Modern clothing for people who believe
-their style should speak before they do.
-Discover carefully selected pieces made
-for everyday confidence.
+<p class="intro">
+A considered collection of modern essentials,
+designed for effortless everyday style.
+Simple pieces. Strong identity.
 </p>
 
-<a class="hero-button"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20shop.">
-SHOP THE COLLECTION →
+<a class="heroBtn"
+href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20see%20the%20collection.">
+EXPLORE COLLECTION →
 </a>
-
 </div>
 
-<div class="hero-image"></div>
+<div class="heroImg"></div>
 
 </section>
 
 
-<!-- MARQUEE -->
-
-<div class="marquee">
-
-<div class="marquee-inner">
-TODAYXTYLE · MODERN CLOTHING · EVERYDAY STYLE · PREMIUM FITS · TODAYXTYLE · MODERN CLOTHING · EVERYDAY STYLE · PREMIUM FITS ·
+<div class="ticker">
+TODAYXTYLE · MODERN ESSENTIALS · EVERYDAY LUXURY · NEW SEASON · TODAYXTYLE · MODERN ESSENTIALS · EVERYDAY LUXURY ·
 </div>
 
-</div>
-
-
-<!-- COLLECTION -->
 
 <section class="section" id="collection">
 
-<div class="section-top">
-
+<div class="head">
 <div>
-<div class="eyebrow">SHOP BY CATEGORY</div>
-<h2 class="section-title">The Collection</h2>
+<div class="eyebrow">01 / COLLECTION</div>
+<div class="title">Made for your mood.</div>
 </div>
 
-<p class="section-description">
-Explore our latest styles and find pieces
-that fit your personality.
-</p>
-
+<div class="note">
+Pieces that move effortlessly from
+everyday moments to after-dark plans.
+</div>
 </div>
 
 
-<div class="categories">
+<div class="collection">
 
-<a class="category"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20T-Shirts.">
-
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90">
-
-<div class="category-content">
-<div class="category-number">01</div>
-<h3>T-Shirts</h3>
+<a href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20T-Shirts.">
+<article>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=90">
+<div class="overlay">
+<span>01</span>
+<h3>Essential Tees</h3>
 </div>
-
+</article>
 </a>
 
-
-<a class="category"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20Shirts.">
-
+<a href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20Shirts.">
+<article>
 <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=90">
-
-<div class="category-content">
-<div class="category-number">02</div>
+<div class="overlay">
+<span>02</span>
 <h3>Shirts</h3>
 </div>
-
+</article>
 </a>
 
-
-<a class="category"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20Hoodies.">
-
+<a href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20Hoodies.">
+<article>
 <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90">
-
-<div class="category-content">
-<div class="category-number">03</div>
+<div class="overlay">
+<span>03</span>
 <h3>Hoodies</h3>
 </div>
-
+</article>
 </a>
 
-
-<a class="category"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20Bottoms.">
-
+<a href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20Bottoms.">
+<article>
 <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=900&q=90">
-
-<div class="category-content">
-<div class="category-number">04</div>
+<div class="overlay">
+<span>04</span>
 <h3>Bottoms</h3>
 </div>
-
+</article>
 </a>
 
 </div>
-
 </section>
 
 
-<!-- NEW ARRIVALS -->
-
 <section class="section" id="new">
 
-<div class="section-top">
-
+<div class="head">
 <div>
-<div class="eyebrow">JUST DROPPED</div>
-<h2 class="section-title">New Arrivals</h2>
+<div class="eyebrow">02 / NEW IN</div>
+<div class="title">The latest pieces.</div>
 </div>
 
-<p class="section-description">
-Fresh styles. Clean silhouettes.
-Made for your everyday wardrobe.
-</p>
-
+<div class="note">
+New silhouettes, fresh textures and
+timeless everyday staples.
+</div>
 </div>
 
 
 <div class="products">
 
-
-<div class="product">
-
-<div class="product-image">
-
-<span class="badge">NEW</span>
-
-<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=90">
-
+<div class="card">
+<div class="pic">
+<div class="tag">NEW</div>
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1000&q=90">
 </div>
-
-<div class="product-info">
-
+<div class="info">
 <h3>Essential Oversized Tee</h3>
-
-<p>Relaxed fit · Premium cotton</p>
-
-<div class="product-bottom">
-
+<p>Relaxed silhouette / Everyday cotton</p>
+<div class="infoBottom">
 <span class="price">₹799</span>
-
-<a class="order"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20order%20the%20Essential%20Oversized%20Tee.">
-ORDER
-</a>
-
+<a class="order" href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20order%20the%20Essential%20Oversized%20Tee.">ORDER</a>
 </div>
-
 </div>
-
 </div>
 
 
-<div class="product">
-
-<div class="product-image">
-
-<span class="badge">BESTSELLER</span>
-
-<img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=90">
-
+<div class="card">
+<div class="pic">
+<div class="tag">FAVOURITE</div>
+<img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=1000&q=90">
 </div>
-
-<div class="product-info">
-
-<h3>Everyday Street Fit</h3>
-
-<p>Modern cut · Easy everyday wear</p>
-
-<div class="product-bottom">
-
+<div class="info">
+<h3>Everyday Edit</h3>
+<p>Clean cut / Contemporary fit</p>
+<div class="infoBottom">
 <span class="price">₹1,199</span>
-
-<a class="order"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20order%20the%20Everyday%20Street%20Fit.">
-ORDER
-</a>
-
+<a class="order" href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20order%20the%20Everyday%20Edit.">ORDER</a>
 </div>
-
 </div>
-
 </div>
 
 
-<div class="product">
-
-<div class="product-image">
-
-<span class="badge">NEW</span>
-
-<img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90">
-
+<div class="card">
+<div class="pic">
+<div class="tag">NEW</div>
+<img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=90">
 </div>
-
-<div class="product-info">
-
+<div class="info">
 <h3>Classic Overshirt</h3>
-
-<p>Premium texture · Relaxed fit</p>
-
-<div class="product-bottom">
-
+<p>Relaxed fit / Textured finish</p>
+<div class="infoBottom">
 <span class="price">₹1,499</span>
+<a class="order" href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20order%20the%20Classic%20Overshirt.">ORDER</a>
+</div>
+</div>
+</div>
 
-<a class="order"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20order%20the%20Classic%20Overshirt.">
-ORDER
+</div>
+</section>
+
+
+<section class="editorial" id="story">
+
+<div class="editorialImg"></div>
+
+<div class="editorialText">
+
+<div class="eyebrow">03 / THE BRAND</div>
+
+<div class="title">
+Less noise.<br>
+More style.
+</div>
+
+<p>
+Todayxtyle is built around the idea that
+great style doesn't need to shout. We
+create modern clothing that lets your
+personality do the talking.
+</p>
+
+<a class="lightBtn"
+href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20tell%20me%20more%20about%20your%20brand.">
+DISCOVER TODAYXTYLE →
 </a>
 
 </div>
-
-</div>
-
-</div>
-
-
-</div>
-
 </section>
 
 
-<!-- BIG BANNER -->
+<section class="brand">
 
-<section class="feature-banner">
+<div class="eyebrow">YOUR EVERYDAY UNIFORM</div>
 
-<div class="banner">
-
-<div class="banner-content">
-
-<div class="banner-small">THE TODAYXTYLE EDIT</div>
-
-<h2>OWN<br>YOUR<br>LOOK.</h2>
-
-<a class="banner-button"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20show%20me%20your%20latest%20collection.">
-EXPLORE NOW
-</a>
-
+<div class="title">
+Dress like<br><em>yourself.</em>
 </div>
-
-</div>
-
-</section>
-
-
-<!-- STORY -->
-
-<section class="section dark" id="story">
-
-<div class="why-grid">
-
-<div>
-
-<div class="eyebrow">OUR PHILOSOPHY</div>
-
-<h2 class="why-title">
-Clothes<br>that feel<br>like you.
-</h2>
-
-<p class="why-text">
-At Todayxtyle, we believe fashion should
-feel effortless. We focus on modern
-silhouettes, versatile pieces and styles
-you can make your own.
-</p>
-
-</div>
-
-
-<div class="features">
-
-<div class="feature">
-
-<span>01 / QUALITY</span>
-
-<h3>Made to Feel Good</h3>
 
 <p>
-Comfortable fabrics and carefully
-selected fits for everyday wear.
+Find pieces that feel natural,
+look effortless and stay relevant.
+Your wardrobe starts here.
 </p>
 
-</div>
-
-
-<div class="feature">
-
-<span>02 / STYLE</span>
-
-<h3>Designed for Now</h3>
-
-<p>
-Modern aesthetics inspired by
-today's street and lifestyle culture.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<span>03 / EXPERIENCE</span>
-
-<h3>Simple Ordering</h3>
-
-<p>
-Choose your favourite piece and
-order directly through WhatsApp.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- REVIEWS -->
-
-<section class="section">
-
-<div class="section-top">
-
-<div>
-
-<div class="eyebrow">CUSTOMER LOVE</div>
-
-<h2 class="section-title">What They Say</h2>
-
-</div>
-
-</div>
-
-
-<div class="reviews">
-
-
-<div class="review">
-
-<div class="stars">★★★★★</div>
-
-<p>
-“Loved the fit and the quality.
-Definitely ordering again.”
-</p>
-
-<div class="review-name">— ARYAN</div>
-
-</div>
-
-
-<div class="review">
-
-<div class="stars">★★★★★</div>
-
-<p>
-“Super clean designs and
-really comfortable.”
-</p>
-
-<div class="review-name">— RIYA</div>
-
-</div>
-
-
-<div class="review">
-
-<div class="stars">★★★★★</div>
-
-<p>
-“Exactly the kind of style
-I was looking for.”
-</p>
-
-<div class="review-name">— KUNAL</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-<div class="eyebrow">YOUR STYLE STARTS HERE</div>
-
-<h2>FIND YOUR<br>NEW FAVORITE.</h2>
-
-<p>
-Browse the collection and order directly on WhatsApp.
-</p>
-
-<a class="hero-button"
-href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20place%20an%20order.">
-ORDER ON WHATSAPP →
+<a class="heroBtn"
+href="https://wa.me/919090909090?text=Hi%20Todayxtyle%2C%20I%20want%20to%20shop.">
+SHOP VIA WHATSAPP →
 </a>
 
 </section>
 
-
-<!-- FOOTER -->
 
 <footer>
 
-<div class="footer-grid">
+<div class="footer">
 
 <div>
-
-<div class="footer-logo">TODAYXTYLE</div>
-
-<p class="footer-about">
-Modern clothing for modern lifestyles.
-Wear what feels like you.
-</p>
-
+<div class="footerLogo">TODAYXTYLE</div>
+<p>Modern essentials for everyday life.</p>
 </div>
 
-
-<div>
-
-<h4>EXPLORE</h4>
-
-<div class="footer-links">
-<a href="#collection">Collection</a>
-<a href="#new">New Arrivals</a>
-<a href="#story">Our Story</a>
+<div class="footerRight">
+<div>GET IN TOUCH</div>
+<a href="https://wa.me/919090909090">WhatsApp · 9090909090</a>
+<a href="#">Instagram</a>
 </div>
 
 </div>
 
-
-<div>
-
-<h4>CATEGORIES</h4>
-
-<div class="footer-links">
-<a href="#collection">T-Shirts</a>
-<a href="#collection">Shirts</a>
-<a href="#collection">Hoodies</a>
-<a href="#collection">Bottoms</a>
-</div>
-
-</div>
-
-
-<div>
-
-<h4>CONNECT</h4>
-
-<div class="footer-links">
-
-<a href="https://wa.me/919090909090">
-WhatsApp
-</a>
-
-<a href="#">
-Instagram
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-
+<div class="bottom">
 <span>© 2026 TODAYXTYLE</span>
-
-<span>WEAR YOUR STYLE.</span>
-
+<span>WEAR WHAT FEELS YOU.</span>
 </div>
 
 </footer>
 
 
 <script>
-
-window.addEventListener("scroll",function(){
-
-const header=document.getElementById("header");
-
-if(window.scrollY>50){
-header.classList.add("scrolled");
-}else{
-header.classList.remove("scrolled");
-}
-
+window.addEventListener("scroll",()=>{
+document.getElementById("header")
+.classList.toggle("active",window.scrollY>40)
 });
-
 </script>
 
 </body>
